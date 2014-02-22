@@ -1,3 +1,36 @@
-﻿.yellow {
+﻿#content {
+    max-width: 960px;
+    padding: 2em;
+}
+ul {
+    list-style: none;
+    padding: 0em;
+}
+
+#showThumbNails ul li {
+    padding: 0em;
+    margin: 0em;
+    display: inline-block;
+    border: inset 0.2em #6a0a71;
+}
+
+#showThumbNails ul li a {
+    text-decoration: none;
+    padding: 0em;
+    display: block;
+}       
+ #showThumbNails ul li a:focus, #showThumbNails ul li a:focus {
+     z-index: 100;
+     box-shadow: 0.2em -0.2em 0.1em #6a0a71;
+}
+#showThumbNails ul li a img {
+    margin: 0em;
+    vertical-align: middle;
+}
+#ValidationDiv {
+    color: #6a0a71;
+}
+
+.yellow {
     background-color: yellow;
 }
