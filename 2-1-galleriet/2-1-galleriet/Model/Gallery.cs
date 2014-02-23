@@ -30,10 +30,15 @@ namespace _2_1_galleriet
             SantizePath = new Regex(string.Format("[{0}]", Regex.Escape(invalidChars)));
             //För att sedan ersätta otillåtna tecken använd metoden Regex.Replace().
         }
-    //    public static bool IsValidImage(Image image)
-    //{
-    //return true;
-    //}
+        public static bool IsValidImage(Image image)
+        {
+            if (image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Gif.Guid ||
+                image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Png.Guid ||
+                image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Jpeg.Guid)
+                return true;
+            else
+                return false;
+        }
 
         public static bool ImageExists(string name)
         {
@@ -47,20 +52,30 @@ namespace _2_1_galleriet
         }
         public string SaveImage(Stream stream, string fileName)
         {
+          
             bool exists = ImageExists(fileName);
+
             var image = System.Drawing.Image.FromStream(stream);
             var thumbnail = image.GetThumbnailImage(60, 45, null, System.IntPtr.Zero);
+            string bigImageUrl = "Content/Images/" + fileName;
             string imagePath = PhysicalUploadedImagesPath + "\\" + fileName;
             string thumbnailPath = PhysicalUploadedImagesPath + "\\ThumbNails\\" + fileName;
+
+            if (IsValidImage(image) == false)
+            {
+                throw new ArgumentException();
+            }
             
             if (exists)
             {
                 imagePath =PhysicalUploadedImagesPath + "\\"+Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
                 thumbnailPath = PhysicalUploadedImagesPath + "\\ThumbNails\\" + Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
+                bigImageUrl = "Content/Images/" + Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
             }
             image.Save(imagePath);
             thumbnail.Save(thumbnailPath);
-            return imagePath;
+           
+            return bigImageUrl;
         }
 
         public static IEnumerable<FileInfo> GetImageNames()

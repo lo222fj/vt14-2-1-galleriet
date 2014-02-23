@@ -52,7 +52,11 @@ namespace _2_1_galleriet
                     try
                     {   //FileName = filnamn utan sökväg med extention
                         string fileName = Gallery.SaveImage(FileUpload.FileContent, FileUpload.FileName);//istället för 107
-                       ShowImageList();
+                        BigImage.ImageUrl = fileName;
+                        string newUrl = "Default.aspx?bild=~/"+fileName;
+                        Response.Redirect(newUrl);
+
+                        ShowImageList();
                     }
                     catch (Exception)
                     {
