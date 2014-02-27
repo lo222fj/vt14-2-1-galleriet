@@ -68,9 +68,35 @@ namespace _2_1_galleriet
             
             if (exists)
             {
-                imagePath =PhysicalUploadedImagesPath + "\\"+Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
-                thumbnailPath = PhysicalUploadedImagesPath + "\\ThumbNails\\" + Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
-                bigImageUrl = "Content/Images/" + Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
+                int i;
+                                
+                for (i = 2; exists == true; i += 1)
+                {
+                    imagePath = PhysicalUploadedImagesPath + "\\" + Path.GetFileNameWithoutExtension(fileName) + "(" + i + ")" + Path.GetExtension(fileName);
+                    if (File.Exists(imagePath))
+                    {
+                        exists = true;
+                    }
+                    else
+                    {
+                        exists = false;
+                        imagePath = PhysicalUploadedImagesPath + "\\" + Path.GetFileNameWithoutExtension(fileName) + "(" + i + ")" + Path.GetExtension(fileName);
+                        thumbnailPath = PhysicalUploadedImagesPath + "\\ThumbNails\\" + Path.GetFileNameWithoutExtension(fileName) + "(" + i + ")" + Path.GetExtension(fileName);
+                        bigImageUrl = "Content/Images/" + Path.GetFileNameWithoutExtension(fileName) + "(" + i + ")" + Path.GetExtension(fileName);
+                    }
+                }
+
+          
+               /* var containsDouble = PhysicalUploadedImagesPath.Contains("(");
+                var position = PhysicalUploadedImagesPath.IndexOf("(");
+                var nextPosition = PhysicalUploadedImagesPath.ToArray();
+                var currentNr = nextPosition[position+1];*/
+
+          
+                //imagePath =PhysicalUploadedImagesPath + "\\"+Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
+               // thumbnailPath = PhysicalUploadedImagesPath + "\\ThumbNails\\" + Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
+                //bigImageUrl = "Content/Images/" + Path.GetFileNameWithoutExtension(fileName) + "(2)" + Path.GetExtension(fileName);
+                
             }
             image.Save(imagePath);
             thumbnail.Save(thumbnailPath);
