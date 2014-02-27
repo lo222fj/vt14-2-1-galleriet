@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Script.js" />
     <Content Include="Content\Style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error.html" />

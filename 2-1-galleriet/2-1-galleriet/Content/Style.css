@@ -9,9 +9,9 @@ ul {
 
 #showThumbNails ul li {
     padding: 0em;
-    margin: 0em;
+    margin: 0 0.15em 0.15em 0;
     display: inline-block;
-    border: inset 0.2em #6a0a71;
+    border: inset 0.15em #6a0a71;
 }
 
 #showThumbNails ul li a {
@@ -19,9 +19,9 @@ ul {
     padding: 0em;
     display: block;
 }       
- #showThumbNails ul li a:focus, #showThumbNails ul li a:focus {
+ #showThumbNails ul li a:focus {
      z-index: 100;
-     box-shadow: 0.2em -0.2em 0.1em #6a0a71;
+     box-shadow: 0.35em -0.25em 0.1em #6a0a71;
 }
 #showThumbNails ul li a img {
     margin: 0em;
@@ -30,7 +30,14 @@ ul {
 #ValidationDiv {
     color: #6a0a71;
 }
-
+#BigImage {
+    width: 90%;
+}
 .yellow {
     background-color: yellow;
+}
+#rightUploadMessage {
+    color: #042307;
+    font-weight: 600;
+
 }

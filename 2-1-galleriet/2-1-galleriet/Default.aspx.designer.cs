@@ -85,39 +85,12 @@ namespace _2_1_galleriet {
         protected global::System.Web.UI.WebControls.Button UploadButton;
         
         /// <summary>
-        /// FileName control.
+        /// rightUploadMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FileName;
-        
-        /// <summary>
-        /// FileContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FileContent;
-        
-        /// <summary>
-        /// FileSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FileSize;
-        
-        /// <summary>
-        /// FilePath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FilePath;
+        protected global::System.Web.UI.WebControls.Label rightUploadMessage;
     }
 }

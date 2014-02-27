@@ -7,6 +7,7 @@
 <head runat="server">
     <title>Galleriet</title>
     <link href="Content/Style.css" rel="stylesheet" />
+    <script src="Content/Script.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -48,9 +49,9 @@
                 <div id="ValidationDiv">
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                 </div>
-               
-                 <asp:FileUpload ID="FileUpload" runat="server" />
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+
+                <asp:FileUpload ID="FileUpload" runat="server" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                     ErrorMessage="En fil måste väljas" ControlToValidate="FileUpload"
                     Text="*"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="ApprovedFileTypes" runat="server"
@@ -59,18 +60,10 @@
                     ControlToValidate="FileUpload"> 
                 </asp:RegularExpressionValidator>
 
-                <asp:Button ID="UploadButton" runat="server" Text="Ladda upp" OnClick="UploadButton_Click"/>
-
-                <div id="showUploadInfo">
-                    Filnamn:
-                <asp:Label ID="FileName" runat="server" Text="Label"></asp:Label><br />
-                    Filinnehåll:
-                <asp:Label ID="FileContent" runat="server" Text="Label"></asp:Label><br />
-                    Filstorlek:
-                <asp:Label ID="FileSize" runat="server" Text="Label"></asp:Label><br />
-                    Sökväg:
-                <asp:Label ID="FilePath" runat="server" Text="Label"></asp:Label>
-                </div>
+                <asp:Button ID="UploadButton" runat="server" Text="Ladda upp" OnClick="UploadButton_Click" />
+                <p>
+                    <asp:Label ID="rightUploadMessage" runat="server" CssClass="green" ></asp:Label>
+                </p>
             </div>
         </div>
     </form>

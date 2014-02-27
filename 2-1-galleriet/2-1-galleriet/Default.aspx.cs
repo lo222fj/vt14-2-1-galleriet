@@ -29,6 +29,11 @@ namespace _2_1_galleriet
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Filename"] != null)
+            {
+                rightUploadMessage.Text = String.Format("Uppladdning av filen {0} lyckades", Session["Filename"] );
+                Session.Remove("Filename");
+            }
             ShowImageList();
             var BigImg = Request.QueryString["bild"];
             Trace.Warn(BigImg);
@@ -52,13 +57,12 @@ namespace _2_1_galleriet
                     try
                     {   //FileName = filnamn utan sökväg med extention
                         string fileName = Gallery.SaveImage(FileUpload.FileContent, FileUpload.FileName);//istället för 107
-                        BigImage.ImageUrl = fileName;
+                        //BigImage.ImageUrl = fileName;
+                        Session["Filename"] = fileName;
                         string newUrl = "Default.aspx?bild=~/"+fileName;
-                        Response.Redirect(newUrl);
-
-                        ShowImageList();
+                        Response.Redirect(newUrl, false);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         var validator = new CustomValidator
                         {
